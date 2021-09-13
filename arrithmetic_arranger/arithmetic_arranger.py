@@ -76,4 +76,4 @@ def arithmetic_arranger(problems):
 
     return arranged_problems
 
-print(arithmetic_arranger(["True", "1 +3", "3 + 5", "1 - 0", "22123 + 49", "3801 - 325"]))
+print(arithmetic_arranger(["True", "1 + 3", "3 + 5", "1 - 0", "22123 + 49", "3801 - 325"]))
