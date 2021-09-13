@@ -29,6 +29,8 @@ def arithmetic_arranger(problems):
             error = 2
 
     for prob in all_probs :
+        if error == 1 or 2 or 3 or 4 :
+            continue
         if prob[1] == "+" :
             ans = int(prob[0]) + int(prob[2])
 
@@ -37,6 +39,8 @@ def arithmetic_arranger(problems):
 
         if len(prob) > 4 :
             error = 4
+            break
+
         largest = max(len(prob[0]), len(prob[2]))
 
         buff_size = largest + 2
@@ -55,6 +59,8 @@ def arithmetic_arranger(problems):
     arranged_problems = ""
     n = '\n'
     while x <= calc :
+        if error == 1 or 2 or 3 or 4 :
+            break
         y = 0
         while y <= amount :
             if y < amount :
@@ -67,6 +73,7 @@ def arithmetic_arranger(problems):
 
         x = x + 1
 
+    print(error)
     if error == 1:
         arranged_problems = "Error: Too many problems."
     elif error == 2:
@@ -78,4 +85,4 @@ def arithmetic_arranger(problems):
 
     return arranged_problems
 
-print(arithmetic_arranger([['32 - 698', '1 - 3801', '45 + 43', '123 + 49', '988 + 40'], True]))
+print(arithmetic_arranger([['32 / 698', '1 - 3801', '45 + 43', '123 + 49', '988 + 40']]))

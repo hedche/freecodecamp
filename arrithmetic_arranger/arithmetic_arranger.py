@@ -7,18 +7,11 @@ def arithmetic_arranger(problems):
     calc = 2
     error = 0
 
-    if problems[1] == True :
-        calc = 3
-        for probl in problems[0] :
-            sprobl = probl.split()
-            if sprobl[1] == "+" or "-" :
-                all_probs.append((sprobl[0], sprobl[1], sprobl[2]))
-            else :
-                error = 2
-
     for problem in problems :
-        if calc == 3 :
-            break
+
+        if problem == 'True' :
+            calc = 3
+            continue
 
         sproblem = problem.split()
 
