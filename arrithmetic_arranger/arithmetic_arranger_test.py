@@ -77,3 +77,5 @@ def arithmetic_arranger(problems):
         arranged_problems = "Error: Numbers cannot be more than four digits."
 
     return arranged_problems
+
+print(arithmetic_arranger([['32 - 698', '1 - 3801', '45 + 43', '123 + 49', '988 + 40'], True]))
