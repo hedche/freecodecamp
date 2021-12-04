@@ -1,4 +1,4 @@
-def arithmetic_arranger(problems):
+def arithmetic_arranger(problems, yn=False):
 
     all_probs = []
     all_ans = []
@@ -7,12 +7,14 @@ def arithmetic_arranger(problems):
     calc = 2
     error = 0
 
-    if problems[1] == True :
+    if yn == True :
         calc = 3
-        for probl in problems[0] :
+        for probl in problems :
             sprobl = probl.split()
+            print(sprobl)
             if sprobl[1] == "+" or "-" :
                 all_probs.append((sprobl[0], sprobl[1], sprobl[2]))
+                print(all_probs)
             else :
                 error = 2
 
@@ -21,7 +23,6 @@ def arithmetic_arranger(problems):
             break
 
         sproblem = problem.split()
-
         if sproblem[1] == "+" or "-" :
             all_probs.append((sproblem[0], sproblem[1], sproblem[2]))
 
@@ -33,7 +34,7 @@ def arithmetic_arranger(problems):
             continue
         if prob[1] == "+" :
             ans = int(prob[0]) + int(prob[2])
-
+            print(ans)
         elif prob[1] == "-" :
             ans = int(prob[0]) - int(prob[2])
 
@@ -85,4 +86,4 @@ def arithmetic_arranger(problems):
 
     return arranged_problems
 
-print(arithmetic_arranger([['32 / 698', '1 - 3801', '45 + 43', '123 + 49', '988 + 40']]))
+print(arithmetic_arranger(['32 + 698', '1 - 3801', '45 + 43', '123 + 49', '988 + 40'], True))
