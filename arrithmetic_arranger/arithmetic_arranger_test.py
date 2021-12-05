@@ -1,43 +1,43 @@
+#Arithmetic arranger function
+
 def arithmetic_arranger(problems, yn=False):
 
     all_probs = []
-    all_ans = []
     buff = []
     x = 0
     calc = 2
     error = 0
     accepted_operands= "+-"
 
+    #If the second agrument is True we have to print the answer 
     if yn == True :
         calc = 3
 
     for problem in problems :
         sproblem = problem.split()
+        # If the operands are + or - continue, if not return error
         if any(c in accepted_operands for c in sproblem[1]):
             all_probs.append((sproblem[0], sproblem[1], sproblem[2]))
         else :
             error = 2
 
+    # If we have more than 5 problems to solve return error        
+    if len(all_probs) > 5 :
+        error = 1
+
     for prob in all_probs :
-        print(prob)
-        print(len(prob[0]))
-        print(len(prob[2]))
-        if len(prob[0]) or len(prob[2]) > 4 :
+        largest = max(len(prob[0]), len(prob[2]))
+        
+        #If one of the numbers is more than 4 digits
+        if largest > 4 :
             error = 4
 
-        #if error == 1 or 2 or 3 or 4 :
-            #break
         if prob[1] == "+" :
             ans = int(prob[0]) + int(prob[2])
-            print(ans)
         elif prob[1] == "-" :
             ans = int(prob[0]) - int(prob[2])
 
-
-        largest = max(len(prob[0]), len(prob[2]))
-        print(largest)
         buff_size = largest + 2
-
         buff1 = prob[0].rjust(buff_size)
         buff2 = prob[1] + " " + prob[2].rjust(largest)
         buff3 = "-"*buff_size
@@ -45,6 +45,7 @@ def arithmetic_arranger(problems, yn=False):
 
         buff.append((buff1, buff2, buff3, buff4))
 
+    #If there are more than 5 problems, return error 
     if len(all_probs) > 5 :
         error = 1
 
@@ -52,8 +53,7 @@ def arithmetic_arranger(problems, yn=False):
     arranged_problems = ""
     n = '\n'
     while x <= calc :
-        if error == 1 or 2 or 3 or 4 :
-            break
+        
         y = 0
         while y <= amount :
             if y < amount :
@@ -79,4 +79,4 @@ def arithmetic_arranger(problems, yn=False):
 
 
 
-print(arithmetic_arranger(['32 + 698', '1 - 3801', '45 + 43', '123 + 49', '988 + 40'], True))
+print(arithmetic_arranger(['32 + 698', '1 - 3071', '45 + 43', '123 + 49', '988 + 460'], True))
