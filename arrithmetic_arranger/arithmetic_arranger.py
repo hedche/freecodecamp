@@ -31,19 +31,24 @@ def arithmetic_arranger(problems, yn=False):
         #If one of the numbers is more than 4 digits
         if largest > 4 :
             error = 4
+        prob0=prob[0]
+        prob2=prob[2]
+        
+        if not (prob0.isdigit() and prob2.isdigit()):
+          return "Error: Numbers must only contain digits."
+        elif (prob0.isdigit() and prob2.isdigit()):
+          if prob[1] == "+" :
+              ans = int(prob0) + int(prob2)
+          elif prob[1] == "-" :
+              ans = int(prob0) - int(prob2)
+            
+          buff_size = largest + 2
+          buff1 = prob[0].rjust(buff_size)
+          buff2 = prob[1] + " " + prob[2].rjust(largest)
+          buff3 = "-"*buff_size
+          buff4 = str(ans).rjust(buff_size)
 
-        if prob[1] == "+" :
-            ans = int(prob[0]) + int(prob[2])
-        elif prob[1] == "-" :
-            ans = int(prob[0]) - int(prob[2])
-
-        buff_size = largest + 2
-        buff1 = prob[0].rjust(buff_size)
-        buff2 = prob[1] + " " + prob[2].rjust(largest)
-        buff3 = "-"*buff_size
-        buff4 = str(ans).rjust(buff_size)
-
-        buff.append((buff1, buff2, buff3, buff4))
+          buff.append((buff1, buff2, buff3, buff4))
 
     #If there are more than 5 problems, return error 
     if len(all_probs) > 5 :
@@ -52,9 +57,8 @@ def arithmetic_arranger(problems, yn=False):
     amount = len(all_probs) - 1
     arranged_problems = ""
     n = '\n'
-    
-    #Loop through list of lists to buffer the output string
     while x <= calc :
+        
         y = 0
         while y <= amount :
             if y < amount :
