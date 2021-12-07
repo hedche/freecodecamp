@@ -5,6 +5,10 @@ class Rectangle:
         self.width = width
         self.heigth = height
 
+    #Using string interpolation, printing out the desired string based on the project requirements
+    def __str__(self) -> str:
+        return f'Rectangle(width={self.width}, height={self.height})'
+
     def set_width(self, width):
         self.width = width
 
@@ -33,12 +37,17 @@ class Rectangle:
     def get_amount_inside(self, shape):
         return int(self.get_area() / shape.get_area())
 
-    #Using string interpolation, printing out the desired string based on the project requirements
-    def __str__(self) -> str:
-        return f'Rectangle(width={self.width}, height={self.height})'
+    
 
 #Square class that inherits all methods from Rectangle class
 class Square(Rectangle):
     def __init__(self, side):
+        self.width = side
+        self.height = side
+
+    def __str__(self) -> str:
+        return f'Square(width={self.width}, height={self.height})'
+
+    def set_side(self, side):
         self.width = side
         self.height = side
