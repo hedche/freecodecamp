@@ -2,12 +2,13 @@ class Rectangle:
     
     #Using init here to assign the width and height variables being used in this class
     def __init__(self, width, height):
-        self.width = width
-        self.heigth = height
+      self.width = width
+      self.height = height
 
     #Using string interpolation, printing out the desired string based on the project requirements
-    def __str__(self) -> str:
-        return f'Rectangle(width={self.width}, height={self.height})'
+    def __str__(self):
+      return f'Rectangle(width={self.width}, height={self.height})'
+
 
     def set_width(self, width):
         self.width = width
@@ -16,7 +17,7 @@ class Rectangle:
         self.height = height
     
     def get_area(self):
-        return self.width * self.height 
+        return (self.width * self.height)
 
     #Gets the perimiter 
     def get_perimeter(self):
@@ -30,8 +31,8 @@ class Rectangle:
     def get_picture(self):
         if (self.width > 50 or self.height > 50):
             return "Too big for picture."
-        string = (("*" * self.width) + "\n") * self.height
-        return string
+        picture = (("*" * self.width) + "\n") * self.height
+        return picture
 
     #Method to get amount of times 'shape' will fit into the area of the Rectangle/Square
     def get_amount_inside(self, shape):
@@ -45,8 +46,8 @@ class Square(Rectangle):
         self.width = side
         self.height = side
 
-    def __str__(self) -> str:
-        return f'Square(width={self.width}, height={self.height})'
+    def __str__(self):
+        return f'Square(side={self.width})'
 
     def set_side(self, side):
         self.width = side
