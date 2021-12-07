@@ -1,4 +1,6 @@
 class Rectangle:
+    
+    #Using init here to assign the width and height variables being used in this class
     def __init__(self, width, height):
         self.width = width
         self.heigth = height
@@ -12,16 +14,30 @@ class Rectangle:
     def get_area(self):
         return self.width * self.height 
 
+    #Gets the perimiter 
     def get_perimeter(self):
         return (2 * self.width + 2 * self.height)
 
+    #Get the diagonal based on pythagoras
     def get_diagonal(self):
         return ((self.width ** 2 + self.height ** 2) ** .5)
 
+    #This will return the rectangle/square based on width and height in asterisks.
     def get_picture(self):
         if (self.width > 50 or self.height > 50):
             return "Too big for picture."
+        string = (("*" * self.width) + "\n") * self.height
+        return string
 
+    #Method to get amount of times 'shape' will fit into the area of the Rectangle/Square
+    def get_amount_inside(self, shape):
+        return int(self.get_area() / shape.get_area())
+
+    #Using string interpolation, printing out the desired string based on the project requirements
+    def __str__(self) -> str:
+        return f'Rectangle(width={self.width}, height={self.height})'
+
+#Square class that inherits all methods from Rectangle class
 class Square(Rectangle):
     def __init__(self, side):
         self.width = side
