@@ -1,6 +1,5 @@
 import copy
 import random
-# Consider using the modules imported above.
 
 class Hat:
     #kwargs will be our dictionary for all the parameters passed in
