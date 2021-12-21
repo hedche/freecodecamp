@@ -35,10 +35,16 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
         
         #Same deep copy here so that hat_copy does not change with hat
         hat_copy = copy.deepcopy(hat)
+        
         colours_gotten = hat_copy.draw(num_balls_drawn)
         
-        for colours in colours_gotten:
+        for colour in colours_gotten:
             if(colour in expected_balls_copy):
+                #Reducing the value of the int(value) in the expected_balls_copy dict
                 expected_balls_copy[colour]-=1
         
-    return None
+        #Once all the values in the expected_balls_copy dict reach 0
+        if(all(x <= 0 for x in expected_balls_copy.values())):
+            count +=1
+        
+    return count / num_experiments
