@@ -4,9 +4,20 @@ class Category:
         self.name = name
         self.ledger = list()
 
-    def __str__(self) -> str:
-        title_length = 30
-        
+    def __str__(self):
+        title = '{:*^30}'.format(self.name) + "\n"
+        items = ""
+        total = 0
+        for item in self.ledger:
+            #Padding description with amount. [0:23] will cut the description if it's too long, 
+            # then :23 to pad with enough spaces. 7.2 for padding either side of the decimal point.
+            items += f"{item['description'][0:23]:23}" + f"{item['amount']:7.2f}" + "\n"
+            
+            #Adding all the -ve and +ve values to get the total
+            total += item['amount']
+
+        string_out = title + items + "Total: " + str(total)        
+        return(string_out)
 
     #Deposit method accepts amount and description (optional) then appends object to the ledger list
     def deposit(self, amount, description=""):
@@ -44,7 +55,14 @@ class Category:
             return True
         return False
 
+
+
+
 def create_spend_chart(categories):
-    astrk = "*"
+    
+    
+    
     
     return None
+
+
